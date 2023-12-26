@@ -1,18 +1,39 @@
-body{
-    background-color: #4e8098;
+/* all colors from coolers.co */
+
+:root{
+    --full-background-color : #344e41; 
+    --smallgrid-background-color : #3a5a40;
+    --square-background-color: #dad7cd;
+    --player1-color: #a3b18a;
+    --player2-color: #588157;
+
+    min-width: 500px;
+    min-height:500px
+    
 }
-#direction-text{
-    font-size:10px;
+
+
+
+body{
+    background-color: var(--full-background-color);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#texts{
     font-weight:bold;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align:center;
+    color: var(--square-background-color)
 }
 
 .fullgrid{
     display:grid;
     position:fixed;
-    top:25%;
-    transform: translateX(50%);
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
     grid-gap:2px;
     grid-template-columns: repeat(3,150px);
     grid-template-rows: repeat(3,150px);
@@ -21,41 +42,57 @@ body{
 
 .smallgrid{
     padding:10px;
-    background-color:#ced3dc;
+    background-color: var(--smallgrid-background-color);
     border-radius:10px;
-    border: 1px solid black;
     transition:transform .3s, z-index .3s;
     display:grid;
     position:relative;
-    grid-gap:12.5px;
+    grid-gap:14px;
     grid-template-columns: repeat(3,30px);
     grid-template-rows: repeat(3,30px);
     transform:translateY(-30%)
 }
 
 .smallgrid > div{
-    border:1px solid black;
     border-radius:10px;
-    padding:20px;;
-    background:#fcf7f8;
+    padding:20px;
+    background: var(--square-background-color);
     
 }
 
 .smallgrid.active{
     transform: scale(1.25)  translateY(-40px);
     z-index:1;
-    background:#51e077;
+}
+
+#theme-txt{
+    position: absolute;
+    top:80%;
+    color: var(--square-background-color);
+}
+
+#choose-theme{
+    text-align: center;
 }
 
 
-.won{
-    background-color: fuchsia;
+#themes{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+
+
+#themes > p{
+    margin:15px;
 }
 
 
 
+.player1{
+    background-color : var(--player1-color) !important;
+}
 
-
-
-
-
+.player2{
+    background-color : var(--player2-color) !important;
+}
